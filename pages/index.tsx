@@ -1,4 +1,5 @@
-import type { NextPage } from 'next'
+import type { NextPage} from 'next'
+import  Link from 'next/link'
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
@@ -49,6 +50,12 @@ const Home: NextPage = () => {
             <p>
               Instantly deploy your Next.js site to a public URL with Vercel.
             </p>
+          </a>
+          <a href="/about" className="/about">
+              <h2>About us</h2>
+              <p>
+                Learn more about this Next.js app! 
+              </p>
           </a>
         </div>
       </main>
