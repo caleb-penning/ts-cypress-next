@@ -78,7 +78,6 @@ describe("Form submission", () => {
         cy.get("@email").type("testing@testing.com")
         cy.get("@feedback").type("I love this app!")
         cy.get("@submit").click()
-        cy.wait(1000)
 
         // assert
         cy.get("h3").contains("Thank you for your feedback!")
