@@ -51,10 +51,17 @@ const Home: NextPage = () => {
               Instantly deploy your Next.js site to a public URL with Vercel.
             </p>
           </a>
-          <a href="/about" className="/about">
-              <h2>About us</h2>
+          <a href="/about" className={styles.card} >
+              <h2>About us &rarr;</h2>
               <p>
                 Learn more about this Next.js app! 
+              </p>
+          </a>
+
+          <a href="/feedback" className={styles.card} >
+              <h2>Leave Us Feedback &rarr;</h2>
+              <p>
+                Let us know what we could do better!
               </p>
           </a>
         </div>
