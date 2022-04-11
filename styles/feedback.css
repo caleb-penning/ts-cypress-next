@@ -33,6 +33,11 @@
     width: 100%;
 }
 
+.feedback-form input[type=submit]:hover {
+    background-color:rgba(0, 0, 0, 0.5);
+    color: white;
+}
+
 .feedback-complete {
     display: flex;
     flex-direction: column;
