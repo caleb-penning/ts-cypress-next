@@ -1,3 +1,5 @@
+/// <reference types="Cypress" />
+
 describe("Home Page Navigation", () => {
     // cy is not imported, but rather a global object that Cypress places on the window object
     it("should be able to navigate to the about page", () => {
