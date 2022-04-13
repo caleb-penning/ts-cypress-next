@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "cypress": "cypress open"
+    "cypress": "cypress open",
+    "cypress:dash": "cypress run --record --key e0635b27-890e-4b2a-bcd1-c0fe2eaa19d1"
   },
   "dependencies": {
     "axios": "^0.26.1",
