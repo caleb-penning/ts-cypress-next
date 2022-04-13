@@ -68,4 +68,85 @@ describe("Todos Page", () => {
           .get("li")
           .should("have.length", 2)
     })
+
+    it("Should render a message when there are no todos, instead of a list", () => {
+        // arrange
+        cy.visit("/todos")
+
+        // act
+        cy
+          .get("li button:first")
+          .click()
+        cy
+          .get("li button:first")
+          .click()
+        cy
+          .get("ul")
+          .as("todos")  
+
+        // assert
+        cy
+          .get("@todos")
+          .should("have.length", 1)
+          .should("include.text", "Add some to-dos")
+    })
+
+    it("Should go from list of tasks, to message when no tasks, then back to a list upon submission", () => {
+        // arrange
+        cy.visit("/todos")
+
+        cy
+          .get("ul")
+          .as("todos")
+
+        cy
+          .get("li")
+          .should("have.length", 2)
+
+        // act
+        cy
+          .get("li button:first")
+          .click()
+
+        cy
+          .get("li button:first")
+          .click()
+
+        cy
+          .get("@todos")
+          .should("have.length", 1)
+
+        cy
+          .get("@todos")
+          .should("include.text", "Add some to-dos")
+
+        cy
+          .get("input[type*='text']")
+          .as("input")
+          .get("input[type*='submit']")
+          .as("submit")
+
+        cy
+          .get("@input")
+          .type("This is the first todo after deleting the other ones")
+        
+        cy.get("@submit").click()
+
+        // assert
+        cy
+          .get("@todos")
+          .should("have.length", 1)
+        
+        cy
+          .get("li")
+          .should("include.text", "This is the first todo after deleting the other ones")
+        
+        cy
+          .get("li button:first")
+          .click()
+        
+        cy
+          .get("@todos")
+          .should("include.text", "Add some to-dos with the form below!")
+    })
 })
